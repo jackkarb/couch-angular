@@ -1,0 +1,36 @@
+<br>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h2 class="page-header">Database</h2>
+    <form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">CouchDB</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="f1" ng-model="data.couchdb" readonly>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">uuid</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="f2" ng-model="data.uuid" readonly>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">version</label>
+        <div class="col-sm-4">
+
+            <input type="text" class="form-control" id="f3" ng-model="data.version" readonly>
+
+        </div>
+    </div>
+        <h2 class="page-header">Jacks Database</h2>
+        <div class="form-group" ng-repeat="p in props">
+            <label class="col-sm-2 control-label">{{p}}</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="{{p}}" ng-model="dat2[p]" readonly>
+
+            </div>
+        </div>
+    </form>
+</div>

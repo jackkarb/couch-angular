@@ -1,0 +1,156 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h3 class="page-header">A-2000</h3>
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Panel Size</label>
+            <div class="col-sm-4">
+                {{data.panelSize}}
+                <!--input type="text" class="form-control" id="panelSize" placeholder="Panel Size" ng-model="data.panelSize"-->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="label" class="col-sm-2 control-label">Device Label</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="label" placeholder="Device Label" ng-model="data.label" ng-change="submitSingleValue()" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="location" class="col-sm-2 control-label">Location</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="location" placeholder="Location" ng-model="data.location" ng-change="submitSingleValue()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="feederCKT" class="col-sm-2 control-label">Feeder CKT</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="feederCKT" placeholder="Feeder CKT" ng-model="data.feederCKT" ng-change="submitSingleValue()" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="voltage" class="col-sm-2 control-label">Voltage</label>
+            <div class="col-sm-4">
+                <!--
+                <select class="form-control" id="voltage" ng-options="v as v.label for v in data.voltage"
+                                                       ng-change="submitSingleValue()"></select>
+                -->
+                <select class="form-control" id="voltage" ng-model="select_voltage" ng-change="submitAll(data.voltage,select_voltage)">
+                    <option ng-repeat="v in data.voltage" ng-selected="v.selected" ng-show="v.valid" ng-value="v.displayName">
+                        {{v.displayName}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mounting" class="col-sm-2 control-label">Mounting</label>
+
+            <div class="col-sm-4">
+                <select class="form-control" id="mounting" ng-model="select_mounting" ng-change="submitAll(data.mounting,select_mounting)">
+                    <option ng-repeat="m in data.mounting" ng-selected="m.selected" ng-value="m.displayName">
+                        {{m.displayName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <h4 class="sub-header">Panel Breaker Info</h4>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Add Main Breaker?</label>
+            <div class="col-sm-8">
+                <input type="checkbox" id="mainBreaker" ng-model="data.mainBreaker" ng-change="submitSingleValue()">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="breakerSize" class="col-sm-2 control-label">Breaker Size</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="breakerSize" ng-model="select_breakerSize" ng-change="submitAll(data.breakerSize,select_breakerSize)">
+                    <option ng-repeat="b in data.breakerSize" ng-selected="b.selected" ng-show="b.valid" ng-value="b.displayName">
+                        {{b.displayName}}
+                    </option>
+                </select>
+
+            </div>
+        </div>
+        <h4 class="sub-header">Relay Panel Info</h4>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Relay Panel Required?</label>
+            <div class="col-sm-8">
+                <input type="checkbox" id="panelRequired" ng-model="data.panelRequired" ng-change="submitSingleValue()">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="feederType" class="col-sm-2 control-label">Feeder Type</label>
+
+            <div class="col-sm-4">
+                     <span ng-if="data.panelRequired">
+                        <select class="form-control" id="feederType" ng-model="select_feederType" ng-change="submitAll(data.feederType,select_feederType)">
+
+                            <option ng-repeat="f in data.feederType" ng-show="f.valid" ng-selected="f.selected" ng-value="f.displayName">
+                                {{f.displayName}}
+                            </option>
+
+                        </select>
+                        </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="relayVoltage" class="col-sm-2 control-label">Relay Voltage</label>
+            <div class="col-sm-3">
+                        <span ng-if="data.panelRequired">
+                        <select class="form-control" id="relayVoltage" ng-model="select_relayVoltage" ng-change="submitAll(data.relayVoltage,select_relayVoltage)">
+                            <option ng-repeat="r in data.relayVoltage" ng-show="r.valid" ng-selected="r.selected" ng-value="r.displayName">
+                                {{r.displayName}}
+                            </option>
+                        </select>
+                         </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="relayQuantity" class="col-sm-2 control-label">Relay Qty </label>
+            <div class="col-sm-2">
+                         <span ng-if="data.panelRequired">
+                        <select class="form-control" id="relayQuantity" ng-options="q for q in [0,2,4,6,8,12]" ng-model="data.relayQuantity"
+                                ng-change="submitAddRelay(data.relayQuantity)"></select>
+                         </span>
+            </div>
+        </div>
+        <h4 class="sub-header">DMX Jacks</h4>
+        <div class="form-group">
+            <label for="dmxjacks" class="col-sm-2 control-label">DMX 512 Jacks</label>
+
+            <div class="col-sm-2">
+                <select class="form-control" id="dmxjacks" ng-options="d for d in [0,1,2]" ng-model="data.dmxjacks"
+                        ng-change="submitSingleValue()"></select>
+
+            </div>
+        </div>
+        <div class="table-responsive" >
+            <table class="table" ng-show="data.dmxjacks">
+                <thead>
+                <tr>
+                    <th>Part#</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="d in data.dmx">
+                    <td>{{d.invItem}}</td>
+                    <td>N/A</td>
+                    <td>{{d.displayName}}</td>
+                    <td><input type="number" id="a" min="0" max="99" ng-bind=""></td>
+
+                </tr ng-end>
+                </tbody>
+            </table>
+        </div>
+
+
+    </form>
+</div>
+
+
+
