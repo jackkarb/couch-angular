@@ -1,1 +1,2 @@
-This is not the Amgular Seed
+This is not the Angular Seed, It is just me playing with Angular and Couch
+a beautiful combination...
