@@ -60,6 +60,7 @@ angular.module('myApp', [
                         }
                 });
 
+
         // CALLBACKS
 
         uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
