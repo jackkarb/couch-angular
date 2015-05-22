@@ -1,0 +1,148 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;  /* add 40 for menu */
+
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 1;
+  border-color: #76B900 /*new*/
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 50px;  /* was 51  adjust for menu*/
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+ color: #fff;
+ background-color: #04519b; /* jk remove */
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+/* jk custom */
+
+.button2 {
+    background: url("../../imgs/bg_button_span.gif") no-repeat scroll right top transparent;
+    display: block;
+    font: 12px arial, sans-serif;
+    font-weight: bold;
+    color: white;
+    height: 24px;
+    padding-left: 15px;
+    text-decoration: none;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    width: 100%;
+}
+
+.footer, .push {
+    position: fixed;
+    top: 620px;
+    height: 70px;
+}
+
+div.scroll {
+    height: 450px;
+    width: 267px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /*border: 2px solid #76b900;*/
+}
+div.menu {
+    position: fixed;
+    top: 86px;
+    height: 35px;
+    z-index: 2000;
+    background-color: white;
+    border-bottom: 1px solid #76b900;
+    padding-left: 20px;
+    width: 100%
+}
+a.alev:focus {
+    color: #001D68;
+}
