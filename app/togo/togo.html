@@ -1,88 +1,108 @@
 <div class="row">
     <div class="col-lg-6 col-lg-offset-2 main">
-        <h3 class="page-header">A Place I want to Go!</h3>
-        <div class="well bs-component">
-            <form class="form-horizontal">
-                <fieldset>
-                    <legend></legend>
-                    <div class="form-group">
-                        <label for="name" class="col-lg-2 control-label">Name</label>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>A Place I Want to Go!</h3>
+            </div>
+            <div class="panel-body">
 
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                <!--div class="well bs-component"-->
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend></legend>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-2 control-label">Name</label>
+
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="col-lg-2 control-label">Country</label>
+                        <div class="form-group">
+                            <label for="name" class="col-lg-2 control-label">Country</label>
 
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="name" placeholder="Country">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="name" placeholder="Country">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="continent" class="col-lg-2 control-label">Continent</label>
+                        <div class="form-group">
+                            <label for="continent" class="col-lg-2 control-label">Continent</label>
 
-                        <div class="col-lg-4">
-                            <select class="form-control" id="continent">
-                                <option>North Americia</option>
-                                <option>South Americia</option>
-                                <option>Europe</option>
-                                <option>Asia</option>
-                                <option>Africia</option>
-                            </select>
+                            <div class="col-lg-4">
+                                <select class="form-control" id="continent">
+                                    <option>North Americia</option>
+                                    <option>South Americia</option>
+                                    <option>Europe</option>
+                                    <option>Asia</option>
+                                    <option>Africia</option>
+                                </select>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Description</label>
-                         <div class="col-lg-10">
-                            <textarea class="form-control" rows="5" id="description"></textarea>
-                            <span class="help-block">PATRICIA KARINERP</span>
-                        </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="textArea" class="col-lg-2 control-label">Description</label>
 
-                    <div class="form-group">
-                        <label for="upload" class="col-lg-2 control-label">Images</label>
-                        <div class="col-lg-10">
-
-                            <input type="file" nv-file-select="" uploader="uploader" /><br>
-                            <!--
-                            <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadItem()" >
-                                <span class="glyphicon glyphicon-upload"></span> Upload
-                            </button><br>
-                            -->
-                            <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadAll()" >
-                                <span class="glyphicon glyphicon-upload"></span> Upload all
-                            </button>
-
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="5" id="description"></textarea>
+                                <span class="help-block">Help </span>
+                            </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="upload" class="col-lg-2 control-label"></label>
 
-                    </div>
+                            <div class="col-lg-10">
+                                <div class="btn btn-primary btn-sm">
+                                   Save
+                                </div>
+                                <div class="btn btn-primary btn-sm" ngf-select ng-model="files" ngf-multiple="multiple">
+                                    <span class="glyphicon glyphicon-upload"></span> Upload Image
+                                </div>
+                                {{file.name}}
+                                <!--
+                                <input type="file" nv-file-select="" uploader="uploader" /><br>
+
+                                <button type="button" class="btn btn-success btn-xs" ng-click="uploader.uploadItem()" >
+                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                </button><br>
+
+                                <button type="button" class="btn btn-success btn-xs" ng-model="files" >
+                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                </button>
+                                 -->
+                            </div>
 
 
-<!--
-                    <div class="button" ngf-select ng-model="files">Upload using model $watch</div>
-                    <div class="button" ngf-select ngf-change="upload($files)">Upload on file change</div>
-                    Drop File:
-                    <div ngf-drop ng-model="files" class="drop-box"
-                         ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-                         ngf-accept="'.jpg,.png,.pdf'">Drop Images or PDFs files here</div>
-                    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
-                    Image thumbnail: <img ngf-src="files[0]" ngf-default-src="/thumb.jpg" ngf-accept="image/*">
-                    Audio preview: <audio controls ngf-src="files[0]" ngf-accept="audio/*"></audio>
-                    Video preview: <video controls ngf-src="files[0]" ngf-accept="video/*"></video>
-
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="reset" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                    </div>
--->
-                </fieldset>
-            </form>
+
+
+                        <!--
+                                            <div class="button" ngf-select ng-model="files">Upload using model $watch</div>
+                                            <div class="button" ngf-select ngf-change="upload($files)">Upload on file change</div>
+                                            Drop File:
+                                            <div ngf-drop ng-model="files" class="drop-box"
+                                                 ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+                                                 ngf-accept="'.jpg,.png,.pdf'">Drop Images or PDFs files here</div>
+                                            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+                                            Image thumbnail: <img ngf-src="files[0]" ngf-default-src="/thumb.jpg" ngf-accept="image/*">
+                                            Audio preview: <audio controls ngf-src="files[0]" ngf-accept="audio/*"></audio>
+                                            Video preview: <video controls ngf-src="files[0]" ngf-accept="video/*"></video>
+
+                                            <div class="form-group">
+                                                <div class="col-lg-10 col-lg-offset-2">
+                                                    <button type="reset" class="btn btn-default">Cancel</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+                        -->
+                    </fieldset>
+                </form>
+            </div>
         </div>
-    </div>
+
+</div>
+<div class="col-lg-3 main">
+
+    <h3 class="page-header">More Places I Want to Go!</h3>
+</div>
 </div>
