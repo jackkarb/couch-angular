@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-lg-6 col-lg-offset-2 main">
+        <br>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>A Place I Want to Go!</h3>
@@ -14,21 +15,21 @@
                             <label for="name" class="col-lg-2 control-label">Name</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
+                                <input type="text" class="form-control" id="name" placeholder="Name" ng-model="data.name" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="col-lg-2 control-label">Country</label>
+                            <label for="name" class="col-lg-2 control-label" >Country</label>
 
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="name" placeholder="Country">
+                                <input type="text" class="form-control" id="name" placeholder="Country" ng-model="data.country">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="continent" class="col-lg-2 control-label">Continent</label>
 
                             <div class="col-lg-4">
-                                <select class="form-control" id="continent">
+                                <select class="form-control" id="continent" ng-model="data.continent">
                                     <option>North Americia</option>
                                     <option>South Americia</option>
                                     <option>Europe</option>
@@ -42,8 +43,8 @@
                             <label for="textArea" class="col-lg-2 control-label">Description</label>
 
                             <div class="col-lg-10">
-                                <textarea class="form-control" rows="5" id="description"></textarea>
-                                <span class="help-block">Help </span>
+                                <textarea class="form-control" rows="5" id="description" ng-model="data.description"></textarea>
+                                <span class="help-block">Help block</span>
                             </div>
                         </div>
 
@@ -51,7 +52,7 @@
                             <label for="upload" class="col-lg-2 control-label"></label>
 
                             <div class="col-lg-10">
-                                <div class="btn btn-primary btn-sm">
+                                <div class="btn btn-primary btn-sm" ng-click="save();">
                                    Save
                                 </div>
                                 <div class="btn btn-primary btn-sm" ngf-select ng-model="files" ngf-multiple="multiple">
@@ -103,6 +104,6 @@
 </div>
 <div class="col-lg-3 main">
 
-    <h3 class="page-header">More Places I Want to Go!</h3>
+    <!--h3 class="page-header">More Places I Want to Go!</h3-->
 </div>
 </div>
