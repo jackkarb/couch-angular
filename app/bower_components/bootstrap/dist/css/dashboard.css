@@ -65,8 +65,8 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
  color: #fff;
-   /* background-color: #04519b; jk cerulean */
-    background-color: #0c84e4
+    background-color: #04519b;
+   /* background-color: #0c84e4*/
 }
 
 

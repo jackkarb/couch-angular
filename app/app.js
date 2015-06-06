@@ -46,15 +46,26 @@ angular.module('myApp', [
 
         $scope.save = function() {
             var UUID = $resource('http://localhost:5984/_uuids');
-            var uuid = UUID.get({}, function() {
-                $scope.$uid = uuid.uuids[0];
-                //console.log($scope.id + angular.toJson($scope.data));
+            UUID.get({}, function(uuid) {
+                ///var uuid = UUID.get({}, function() {
+                $scope.uid = uuid.uuids[0];
+               //console.log($scope.uid + angular.toJson($scope.data));
+               // var Place = $resource('http://localhost:5984/:db/:uid', null, {'create': {method: 'PUT'}});
+               // var place = Place.create({db:'jacks_db', uid: $scope.uid}, $scope.data);
+               $http.put('http://localhost:5984/jacks_db/'+$scope.uid, $scope.data )
+                    .success(function (data, status, headers, config) {
+                        $scope.rev = data.rev;
+                    });
+
             });
 
-            var Place = $resource('http://localhost:5984/:db/:uid', null, {'create': {method: 'PUT'}});
-            console.log($scope.$uid );
-            var place = Place.create({db:'jacks_db', uid: $scope.$uid}, $scope.data);
-            console.log(place.rev );
+
+            //var Place = $resource('http://localhost:5984/:db/:uid', null, {'create': {method: 'PUT'}});
+            //console.log($scope.uid );
+            //Place.create({db:'jacks_db', uid: $scope.uid}, $scope.data);
+
+           //console.log(angular.toJson(place));
+
         };
 
 
@@ -69,7 +80,7 @@ angular.module('myApp', [
                     Upload.http({
                         method:'PUT',
                         //url: 'upload/'+file.name,
-                        url: 'http://localhost:5984/jacks_db/aa868a443eebf37733456bec8600140f/attachment?rev=3-3e38108a70d7ab1f2e5cd376b70ad04f',
+                        url: 'http://localhost:5984/jacks_db/'+$scope.uid+'/attachment?rev='+$scope.rev,
                         headers: {'Content-Type': file.type},
                         data: file
                     })
