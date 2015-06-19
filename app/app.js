@@ -69,7 +69,7 @@ angular.module('myApp', [
             //console.log($scope.uid );
             //Place.create({db:'jacks_db', uid: $scope.uid}, $scope.data);
 
-           //console.log(angular.toJson(place));
+           //console.log(angular.toJson(place)); hello sirus
 
         };
 
